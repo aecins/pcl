@@ -435,6 +435,12 @@ namespace pcl
         bool
         removeAllCoordinateSystems (int viewport = 0);
 
+        /** \brief Removes  all existing text
+          * \param[in] viewport view port where text should be removed from (default: all)
+          */
+        bool
+        removeAllText (int viewport = 0);
+
         /** \brief Set the viewport's background color.
           * \param[in] r the red component of the RGB color
           * \param[in] g the green component of the RGB color

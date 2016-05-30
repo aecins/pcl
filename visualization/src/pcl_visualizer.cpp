@@ -920,6 +920,24 @@ pcl::visualization::PCLVisualizer::removeAllCoordinateSystems (int viewport)
   return (true);
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+bool
+pcl::visualization::PCLVisualizer::removeAllText (int viewport)
+{   
+  std::string textActorName = "vtkTextActor";
+  
+  // Check to see if the given ID entry exists
+  ShapeActorMap::iterator am_it = shape_actor_map_->begin ();
+  while (am_it != shape_actor_map_->end ())
+  {
+    if (am_it->second->GetClassName() == textActorName && removeShape (am_it->first, viewport))
+      am_it = shape_actor_map_->begin ();
+    else
+      ++am_it;
+  }
+  return (true);
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////
 bool
 pcl::visualization::PCLVisualizer::removeActorFromRenderer (const vtkSmartPointer<vtkLODActor> &actor, int viewport)
